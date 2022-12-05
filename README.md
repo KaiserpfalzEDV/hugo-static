@@ -1,11 +1,11 @@
-# PROJECT - slag line
+# HUGO-STATIC - Blogging in a dynamic static world
 
 > What man is a man who does not make the world better.
 >
 > -- Balian, Kingdom of Heaven
 
 ## Abstract
-
+This is a helm chart to create a pod containing a static web page generate by Hugo extended.
 
 ## License
 The license for the software is LGPL 3.0 or newer. 
@@ -24,7 +24,7 @@ wrong. But every line that needs not be written is a bug free line without need 
 
 
 ## A note from the author
-I'm working on another project that can be found on github [(PROJECT)](https://github.com/klenkes74/PROJECT). And while
+I'm working on another project that can be found on github [(PROJECT)](https://github.com/KaiserpfalzEDV/hugo-static). And while
 developing that piece of software I ran on the blocker not being able to nicely handle OIDC UMA. I looked around and
 found no library to abstract away UMA from my code. So I decided to write one.
 
@@ -33,4 +33,4 @@ _right_. So no short cuts to get faster. And be prepared for some basic discussi
 design :-).
 
 ---
-CITY, DATE
+Bensheim, 2022-12-05

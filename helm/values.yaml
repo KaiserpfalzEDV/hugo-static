@@ -1,0 +1,79 @@
+replicaCount: 1
+
+source:
+  uri: ""
+  ref: main
+  triggerSecret: ""
+
+image:
+  pullPolicy: Always
+
+buildimage:
+  repository: quay.io/klenkes74/hugo-builder
+  pullPolicy: IfNotPresent
+  tag: "0.107.0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations:
+  alpha.image.policy.openshift.io/resolve-names: '*'
+
+podSecurityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  capabilities:
+    drop:
+    - ALL
+  seccompProfile:
+    type: RuntimeDefault
+  # fsGroup: 2000
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 8080
+
+host:
+  main: www.
+  other:
+  - www.
+
+tls:
+  issuer:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  duration: 2160h
+  renewBefore: 1800h
+
+
+resources:
+  limits:
+    cpu: 20m
+    memory: 20Mi
+  requests:
+    cpu: 20m
+    memory: 20Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  utlilization:
+  - name: cpu
+    percentage: 90
+  - name: memory
+    percentage: 90
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
